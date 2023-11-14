@@ -6,7 +6,7 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:50:03 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/13 15:08:50 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:07:01 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	{
 		if (char1[i] != char2[i])
 		{
-			return (char1[i] - char2[i]); 
+			return (char1[i] - char2[i]);
 		}
 		else
 			i++;
 	}
-	return (0); 
+	return (0);
 }
 /*
 #include <stdio.h>
