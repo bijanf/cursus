@@ -6,7 +6,7 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:14:10 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/13 12:40:30 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:10:16 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	int	i;
 
 	i = 0;
-	while (i < n)
+	while (i < (int)n)
 	{
 		if (c == ((unsigned char *) s)[i])
 		{
@@ -60,8 +60,8 @@ int main ()
    ret2 = ft_memchr(str1, ch, strlen(str1));
    printf("String after |%c| is - |%s|\n", ch, ret2);
 
-   return(0);  
-  
+   return(0);
+
   return 0;
 }
 */

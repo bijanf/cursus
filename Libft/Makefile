@@ -6,12 +6,13 @@
 #    By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 11:32:28 by bfallah-          #+#    #+#              #
-#    Updated: 2023/11/16 13:44:12 by bfallah-         ###   ########.fr        #
+#    Updated: 2023/11/16 14:11:21 by bfallah-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+HEADER		= libft.h
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -g
 OUTPUTFILE  =	libft.a
 
 SRCS		=	ft_atoi.c \
@@ -37,14 +38,21 @@ SRCS		=	ft_atoi.c \
 				ft_strdup.c \
 				ft_calloc.c
 
-OBJ			= (SRC: .c .o)
+OBJS		= $(SRCS:.c=.o)
+
 # Specify extensions of files to delete when cleaning
 CLEANEXTS   = o a
 
-
-
-# Default target
-.PHONY: all clean
 all: $(OUTPUTFILE)
+$(OUTPUTFILE):	$(OBJS)
+		@ar rc $(OUTPUTFILE) $(OBJS)
+		@ranlib $(OUTPUTFILE)
 clean:
-    for file in $(CLEANEXTS); do rm -f *.$$file; done
+	@rm -f $(OBJS)
+
+fclean: clean
+	@rm -rf $(OUTPUTFILE)
+
+re: fclean all
+
+.PHONY: all clean
