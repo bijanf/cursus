@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_new.c                                     :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:37:17 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/17 16:21:41 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/17 16:53:13 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,43 +83,6 @@ char	*copy_word(char const *s, int len)
 	word[i] = '\0';
 	return (word);
 }
-/*
-char	**ft_split(char const *s, char c)
-{
-	char	**words;
-	char	**words_ptr;
-	int		len;
-
-	if (!s)
-		return (NULL);
-	words = malloc(sizeof(char *) * (word_count(s, c) + 1));
-	if (!words)
-		return (NULL);
-	words_ptr = words;
-	while (*s)
-	{
-		if (*s != c)
-		{
-			len = 0;
-			while (*s && (*s != c))
-			{
-				len++;
-				s++;
-			}
-			*words_ptr = copy_word(s - len, len);
-			if (!words_ptr)
-			{
-				ft_free(words);
-				return (NULL);
-			}
-			words_ptr++;
-		}
-		else
-			s++;
-	}
-	*words_ptr = NULL;
-	return (words);
-}*/
 
 char	**ft_split(char const *s, char c)
 {
