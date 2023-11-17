@@ -6,7 +6,7 @@
 #    By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 11:32:28 by bfallah-          #+#    #+#              #
-#    Updated: 2023/11/16 15:44:46 by bfallah-         ###   ########.fr        #
+#    Updated: 2023/11/17 10:07:20 by bfallah-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,30 +40,20 @@ SRCS		=	ft_atoi.c \
 				ft_strdup.c \
 				ft_calloc.c
 
-SRCS_DIR = ./
-SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
 
-
-OBJS_DIR = ./
-OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
-
-
-
-.c.o: $(SRCS)
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-$(NAME): $(OBJS)
-	$(AR) $@ $^
-
+OBJS = ${SRCS:.c=.o}
 
 all: $(NAME)
 
+$(NAME) : $(OBJS)
+		ar rcs $(NAME) $(OBJS)
+
 clean:
-	$(RM) $(OBJS)
+		rm -f $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+		rm -f $(NAME)
 
-re: clean all
+re: fclean all
 
 .PHONY: all clean fclean re
