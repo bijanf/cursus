@@ -6,7 +6,7 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:47:36 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/16 13:43:07 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/17 10:37:01 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #  define INT_MAX 2147483647
 # endif
 # include <stddef.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 int		ft_isalpha(int a);
 int		ft_isdigit(int a);
@@ -41,4 +43,5 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s);
 void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 #endif
