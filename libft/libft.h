@@ -6,22 +6,17 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:47:36 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/18 15:18:43 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/20 16:11:25 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# ifndef INT_MIN
-#  define INT_MIN -2147483648
-# endif
 
-# ifndef INT_MAX
-#  define INT_MAX 2147483647
-# endif
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_list
 {

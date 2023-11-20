@@ -6,7 +6,7 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:10:46 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/17 10:47:05 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/20 16:31:20 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,25 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*tmp;
-	int		i;
+	char	*tmp1;
+	char	*tmp2;
 
-	i = 0;
 	if (s == NULL)
 		return (NULL);
-	if ((size_t)start > len)
-	{
-		tmp = malloc(1);
-		if (tmp == NULL)
-			return (NULL);
-		tmp[0] = '\0';
-		return (tmp);
-	}
-	tmp = ft_calloc((len + 1), sizeof(char));
-	if (!tmp)
+	if ((size_t)start > ft_strlen(s))
+		len = 0;
+	else if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
+	tmp1 = ft_calloc((len + 1), sizeof(char));
+	if (!tmp1)
 		return (NULL);
-	while (start < (unsigned int)len)
+	s = s + start;
+	tmp2 = tmp1;
+	*(tmp1 + len) = '\0';
+	while (len && *s)
 	{
-		tmp[i] = s[start];
-		i++;
-		start++;
+		*tmp1++ = *s++;
+		len--;
 	}
-	return (tmp);
+	return (tmp2);
 }

@@ -6,7 +6,7 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:50:03 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/14 21:07:01 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:09:30 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,22 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t				i;
-	unsigned char		*char1;
-	unsigned char		*char2;
+	const unsigned char	*char1;
+	const unsigned char	*char2;
 
-	char1 = ((unsigned char *) s1);
-	char2 = ((unsigned char *) s2);
-	i = 0;
-	while ((i < n))
+	if (s1 == s2 || n == 0)
+		return (0);
+	char1 = (const unsigned char *) s1;
+	char2 = (const unsigned char *) s2;
+	while (n--)
 	{
-		if (char1[i] != char2[i])
+		if (*char1 != *char2)
+			return (*char1 - *char2);
+		if (n)
 		{
-			return (char1[i] - char2[i]);
+			char1++;
+			char2++;
 		}
-		else
-			i++;
 	}
 	return (0);
 }
@@ -41,11 +42,11 @@ int main () {
    char str2[15];
    int ret;
 
-   memcpy(str1, "abci54", 6);
-   memcpy(str2, "abci", 6);
+   memcpy(str1, "salut", 6);
+   memcpy(str2, "salut", 6);
 
-   ret = memcmp(str1, str2, 9);
-   printf("%d\n",ret); 
+   ret = memcmp(str1, str2, 5);
+   printf("%d\n",ret);
    if(ret > 0) {
       printf("str2 is less than str1");
    } else if(ret < 0) {
@@ -53,12 +54,12 @@ int main () {
    } else {
       printf("str1 is equal to str2");
    }
-   
+
 
    printf("\n");
-    
-   ret = ft_memcmp(str1, str2, 9);
-   printf("%d\n",ret); 
+
+   ret = ft_memcmp(str1, str2, 5);
+   printf("%d\n",ret);
    if(ret > 0) {
       printf("str2 is less than str1");
    } else if(ret < 0) {

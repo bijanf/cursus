@@ -6,10 +6,11 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 10:45:16 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/16 11:24:09 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:12:55 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)

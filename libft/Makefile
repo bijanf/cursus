@@ -6,7 +6,7 @@
 #    By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 11:32:28 by bfallah-          #+#    #+#              #
-#    Updated: 2023/11/18 15:27:52 by bfallah-         ###   ########.fr        #
+#    Updated: 2023/11/20 10:52:26 by bfallah-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS		=	ft_atoi.c \
 				ft_isprint.c \
 				ft_memmove.c \
 				ft_memcmp.c \
+				ft_memcpy.c \
 				ft_memchr.c \
 				ft_memset.c \
 				ft_putchar_fd.c \
@@ -49,23 +50,26 @@ SRCS		=	ft_atoi.c \
 				ft_tolower.c \
 				ft_toupper.c \
 				ft_itoa.c \
-				ft_putendl_fd.c \
 				ft_striteri.c
 
 
 OBJS = ${SRCS:.c=.o}
 
-SRCS_BONUS = 	ft_lstnew.c \
-				ft_lstadd_front.c \
-				ft_lstadd_back.c \
-				ft_lstsize.c \
-				ft_lstlast.c \
-				ft_lstclear.c \
-				ft_lstdelone.c \
-				ft_lstiter.c \
-				ft_lstmap.c
+SRCS_BONUS = 	ft_lstnew_bonus.c \
+				ft_lstadd_front_bonus.c \
+				ft_lstadd_back_bonus.c \
+				ft_lstsize_bonus.c \
+				ft_lstlast_bonus.c \
+				ft_lstclear_bonus.c \
+				ft_lstdelone_bonus.c \
+				ft_lstiter_bonus.c \
+				ft_lstmap_bonus.c
 
 OBJS_BONUS = ${SRCS_BONUS:.c=.o}
+
+#so:
+#	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+#	cc -nostartfiles -shared -o libft.so $(OBJS)
 
 $(NAME): 	$(OBJS)
 			${CC} ${CFLAGS} -c ${SRCS}

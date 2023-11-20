@@ -6,10 +6,11 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 08:44:51 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/16 09:08:41 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:36:45 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
@@ -39,16 +40,17 @@ char	*ft_strrchr(const char *s, int c)
 }
 /*
 #include <stdio.h>
-#include <string.h>
 
-int main(void)
+int main()
 {
-	 char *s = "\t";
-	 int c = 'o';
-	 char *res1 = ft_strrchr(s, c);
-	 char *res2 = strrchr(s, c);
+	 char s[] = "tripouille";
+	 //int c = 'o';
+	 char *res1 = ft_strrchr(s, 0);
+	 char *res2 = strrchr(s, 0);
 	 printf("ft_strrchr: %s\n", res1);
 	 printf("strrchr: %s\n", res2);
+	 printf("strrchr: %s\n", s + strlen(s));
+
 	 return (0);
 }
 */

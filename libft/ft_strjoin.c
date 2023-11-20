@@ -6,7 +6,7 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:15:55 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/17 10:59:51 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/20 16:51:04 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 	size_t	j;
 
+	if (!s1 || !s2)
+		return (NULL);
 	i = 0;
 	j = 0;
 	joint = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char));
-	if (!joint)
+	if (joint == NULL)
 		return (NULL);
 	while (i < ft_strlen(s1))
 	{
@@ -47,7 +49,7 @@ int main()
 {
 	char *s;
 
-	s = ft_strjoin("", "");
+	s = ft_strjoin("tripouille", "42");
 	printf("joined: %s\n", s);
 	free(s);
 
