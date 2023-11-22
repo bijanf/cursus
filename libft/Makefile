@@ -6,7 +6,7 @@
 #    By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/16 11:32:28 by bfallah-          #+#    #+#              #
-#    Updated: 2023/11/20 10:52:26 by bfallah-         ###   ########.fr        #
+#    Updated: 2023/11/22 12:11:51 by bfallah-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ SRCS		=	ft_atoi.c \
 				ft_tolower.c \
 				ft_toupper.c \
 				ft_itoa.c \
+				ft_putendl_fd.c \
 				ft_striteri.c
 
 
@@ -66,10 +67,6 @@ SRCS_BONUS = 	ft_lstnew_bonus.c \
 				ft_lstmap_bonus.c
 
 OBJS_BONUS = ${SRCS_BONUS:.c=.o}
-
-#so:
-#	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-#	cc -nostartfiles -shared -o libft.so $(OBJS)
 
 $(NAME): 	$(OBJS)
 			${CC} ${CFLAGS} -c ${SRCS}

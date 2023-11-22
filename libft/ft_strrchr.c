@@ -6,51 +6,41 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 08:44:51 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/20 11:36:45 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/22 09:17:52 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*str;
-	int		i;
+	const char	*str;
 
-	str = (char *)s;
-	i = (int )ft_strlen(str) - 1;
-	if (str)
+	str = NULL;
+	while (*s)
 	{
-		while (i > 0)
-		{
-			str++;
-			i--;
-		}
-		while (*str)
-		{
-			if ((char)c == *str)
-				return (str);
-			str--;
-		}
-		if ((char)c == 0)
-			return (str);
+		if (*s == (char)c)
+			str = s;
+		s++;
 	}
+	if (*s == (char)c)
+		return ((char *)s);
+	else
+		return ((char *)str);
 	return (NULL);
 }
 /*
 #include <stdio.h>
+#include <string.h>
 
-int main()
+int main(void)
 {
-	 char s[] = "tripouille";
-	 //int c = 'o';
-	 char *res1 = ft_strrchr(s, 0);
-	 char *res2 = strrchr(s, 0);
+	 char *s = "krklrhvrvro\t";
+	 int c = 'o';
+	 char *res1 = ft_strrchr(s, c);
+	 char *res2 = strrchr(s, c);
 	 printf("ft_strrchr: %s\n", res1);
 	 printf("strrchr: %s\n", res2);
-	 printf("strrchr: %s\n", s + strlen(s));
-
 	 return (0);
 }
 */

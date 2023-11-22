@@ -6,7 +6,7 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:15:55 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/20 16:51:04 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:26:05 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,28 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*joint;
-	size_t	i;
-	size_t	j;
+	char	*joint_ptr;
 
 	if (!s1 || !s2)
 		return (NULL);
-	i = 0;
-	j = 0;
-	joint = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char));
-	if (joint == NULL)
+	joint = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
+	if (!joint)
 		return (NULL);
-	while (i < ft_strlen(s1))
+	joint_ptr = joint;
+	while (*s1)
 	{
-		joint[i] = s1[i];
-		i++;
+		*joint = *s1;
+		s1++;
+		joint++;
 	}
-	while (j < ft_strlen(s2))
+	while (*s2)
 	{
-		joint[i] = s2[j];
-		i++;
-		j++;
+		*joint = *s2;
+		s2++;
+		joint++;
 	}
-	joint[i] = '\0';
-	return (joint);
+	*joint = '\0';
+	return (joint_ptr);
 }
 /*
 #include <stdio.h>
@@ -49,7 +48,7 @@ int main()
 {
 	char *s;
 
-	s = ft_strjoin("tripouille", "42");
+	s = ft_strjoin("", "");
 	printf("joined: %s\n", s);
 	free(s);
 

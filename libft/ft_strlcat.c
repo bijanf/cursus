@@ -6,7 +6,7 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 22:13:44 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/20 14:48:24 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/22 09:31:16 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,60 +14,63 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	length;
-	size_t	i;
-	size_t	src_l;
+	size_t		dest_l;
+	size_t		tot_l;
+	const char	*s;
 
-	src_l = ft_strlen(src);
-	length = 0;
-	i = 0;
-	while ((i < size) && dst[i])
-		i++;
-	while ((i + length + 1 < size) && src[length])
+	if ((!dst || !src) && !size)
+		return (0);
+	s = src;
+	dest_l = 0;
+	while (*(dst + dest_l) && dest_l < size)
+		dest_l++;
+	if (dest_l < size)
+		tot_l = dest_l + ft_strlen(s);
+	else
+		return (size + ft_strlen(s));
+	while (*s && (dest_l + 1) < size)
 	{
-		dst[i + length] = src[length];
-		length++;
+		*(dst + dest_l) = *s++;
+		dest_l++;
 	}
-	if (i != size)
-		dst[i + length + 1] = '\0';
-	return (i + src_l);
+	*(dst + dest_l) = '\0';
+	return (tot_l);
 }
 /*
 #include <stdio.h>
-#include <bsd/stdlib.h>
-#include <bsd/string.h>
+#include <stdlib.h>
 
-int main()
-{
-	char dest[30]; memset(dest, 0, 30);
-    char * src = (char *)"AAAAAAAAA";
-    dest[0] = 'B';
-	printf("%s\n", dest);
-	printf("%s\n", src);
-	printf("%zu\n",strlcat(dest, src, 4));
-	printf("%s\n", dest);
-	printf("%s\n", src);
-	printf("===================\n");
-	memset(dest, 0, 30);
-    dest[0] = 'B';
-	src = (char *)"AAAAAAAAA";
-	printf("%s\n", dest);
-	printf("%s\n", src);
-	printf("%zu\n",ft_strlcat(dest, src, 4));
-	printf("%s\n", dest);
-	printf("%s\n", src);
-	//printf("%zu\n",ft_strlcat(dest, src, 1));
-	//printf("%s\n", dest);
-	//printf("%s\n", src);
-	//memset(dest, 'B', 4);
-	//printf("%s\n", dest);
-	//printf("%s\n", src);
-	//printf("%zu\n",ft_strlcat(dest, src, 3));
-	//printf("%s\n", dest);
-	//printf("%s\n", src);
-	//printf("%zu\n",ft_strlcat(dest, src, 6));
-	//printf("%s\n", dest);
-	//printf("BBBBA");
+
+int main() {
+	char *dst = malloc(10);
+	if (dst == NULL)
+	{
+		perror("malloc failed");
+		 exit(1);
+	}
+	char *src = malloc(10);
+	if (src == NULL)
+	{
+		perror("malloc failed");
+		 exit(1);
+	}
+
+	ft_strlcpy(dst, "Hello", 10);
+
+	ft_strlcpy(src, "World", 10);
+
+	printf("Destination string before ft_strlcat: %s\n", dst);
+	printf("Source string before ft_strlcat: %s\n", src);
+
+
+	size_t len1 = ft_strlcat(dst, src, 5);
+	size_t len2 = ft_strlcat(dst, src, 10);
+	printf("Destination string after ft_strlcat with size 5: %s\n", dst);
+	printf("Return value after ft_strlcat with size 5: %zu\n", len1);
+	printf("Destination string after ft_strlcat with size 10: %s\n", dst);
+	printf("Return value after ft_strlcat with size 10: %zu\n", len2);
+	free(dst);
+	free(src);
 	return 0;
 }
 */
