@@ -12,10 +12,11 @@
 
 NAME = libft.a
 
-CC = cc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
-RM = rm -f
+
+CC = cc -include libft.h
+
+HEADER = libft.h
 
 SRCS		=	ft_atoi.c \
 				ft_bzero.c \
@@ -54,7 +55,7 @@ SRCS		=	ft_atoi.c \
 				ft_striteri.c
 
 
-OBJS = ${SRCS:.c=.o}
+OBJS = $(SRCS:.c=.o)
 
 SRCS_BONUS = 	ft_lstnew_bonus.c \
 				ft_lstadd_front_bonus.c \
@@ -66,22 +67,26 @@ SRCS_BONUS = 	ft_lstnew_bonus.c \
 				ft_lstiter_bonus.c \
 				ft_lstmap_bonus.c
 
-OBJS_BONUS = ${SRCS_BONUS:.c=.o}
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+
+all: $(NAME)
 
 $(NAME): 	$(OBJS)
-			${CC} ${CFLAGS} -c ${SRCS}
-			ar rc ${NAME} ${OBJS} libft.h
-all: 		$(NAME) bonus
+		ar rcs ${NAME} ${OBJS}
 
-bonus:		${BJS_BONUS}
-			${CC} ${CFLAGS} -c ${SRCS_BONUS}
-			ar rc ${NAME} ${OBJS_BONUS} libft.h
+$(OBJ_FILES): %.o: %.c $(HEADER)
+	$(CC) $(FLAGS) -c $< -o $@
+
 clean:
-			${RM} ${OBJS} ${OBJS_BONUS}
+	rm -f $(OBJS)
+	rm -f $(OBJS_BONUS)
 
 fclean: clean
-			${RM} ${NAME}
+	rm -f $(NAME)
 
-re: 		fclean all
+re: fclean all
+
+bonus: $(OBJS_BONUS)
+	ar rcs $(NAME) $(OBJS_BONUS)
 
 .PHONY: 	all clean fclean re

@@ -6,18 +6,19 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:58:43 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/22 10:31:47 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/24 14:02:43 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*mem;
 
-	if (nmemb && size && nmemb > (UINT_MAX / size))
+	if (nmemb && size && (int)nmemb > (4294967295 / (int)size))
+		return (NULL);
+	if ((int)(nmemb * size) < 0)
 		return (NULL);
 	mem = malloc(nmemb * size);
 	if (!mem)

@@ -6,7 +6,7 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:08:17 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/22 09:52:50 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:44:44 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,25 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	sign;
-	int	val;
 	int	i;
+	int	sign;
+	int	nb;
 
 	i = 0;
+	nb = 0;
 	sign = 1;
-	while (((nptr[i] >= '\a' && nptr[i] <= '\r')
-			|| nptr[i] == ' ') && nptr[i])
+	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
+	if (nptr[i] == '-')
+		sign = -1;
 	if (nptr[i] == '-' || nptr[i] == '+')
+		i++;
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		if (nptr[i] == '-')
-			sign *= -1;
+		nb = nb * 10 + nptr[i] - 48;
 		i++;
 	}
-	val = 0;
-	while (nptr[i] >= '0' && nptr[i] <= '9' && nptr[i])
-	{
-		if (val > (int)INT_MAX || val < (int)INT_MIN)
-			return (0);
-		val = (val * 10) + (nptr[i++] - '0');
-	}
-	return (val * sign);
+	return (sign * nb);
 }
 /*
 #include <stdio.h>
@@ -47,7 +43,7 @@ int main () {
    int val;
    char str[20];
 
-   strcpy(str, "98993489");
+   strcpy(str, "-2147483649");
    val = atoi(str);
    printf("String value = %s, Int value = %d\n", str, val);
 
@@ -56,7 +52,7 @@ int main () {
    printf("String value = %s, Int value = %d\n", str, val);
 
 
-   strcpy(str, "98993489");
+   strcpy(str, "-2147483649");
    val = ft_atoi(str);
    printf("String value = %s, Int value = %d\n", str, val);
 
