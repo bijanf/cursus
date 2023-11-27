@@ -6,7 +6,7 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 11:37:17 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/11/24 12:51:33 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:09:30 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,57 +31,6 @@ int	word_count(const char *s, char c)
 			i++;
 	}
 	return (count);
-}
-
-void	ft_free(char **words)
-{
-	int	i;
-
-	i = 0;
-	while (words[i])
-	{
-		free(words[i]);
-		i++;
-	}
-	free(words);
-}
-
-char	*fill_word(const char *s, int start, int end)
-{
-	char	*word;
-	int		i;
-
-	word = malloc(sizeof(char) * (end - start + 1));
-	if (!word)
-		return (NULL);
-	i = 0;
-	while (start < end)
-	{
-		word[i] = s[start];
-		i++;
-		start++;
-	}
-	word[i] = '\0';
-	return (word);
-}
-
-char	*copy_word(char const *s, int len)
-{
-	char	*word;
-	int		i;
-
-	word = malloc(sizeof(char) * (len + 1));
-	if (!word)
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		word[i] = *s;
-		i++;
-		s++;
-	}
-	word[i] = '\0';
-	return (word);
 }
 
 char	**ft_split(char const *s, char c)
