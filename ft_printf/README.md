@@ -33,4 +33,4 @@ $ ./test.out
 
 ## Testing with the https://github.com/Tripouille/printfTester
 
-[Imgur](https://i.imgur.com/SKkCuCg.png)
+![Imgur](https://i.imgur.com/SKkCuCg.png)
