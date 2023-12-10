@@ -19,12 +19,15 @@ $ make
 int main()
 {
 	ft_printf("I am %d years old", 20);
+	printf("\n");
+	printf("I am %d years old", 20);
+	printf("\n");
 	return (0);
 }
 ```
 
 ```csh
-$ cc main.c libftprintf.a -o test.out
+$ cc main.c -Iinclude libftprintf.a -o test.out
 $ ./test.out
 ```
 
