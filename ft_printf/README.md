@@ -31,4 +31,6 @@ $ cc main.c -Iinclude libftprintf.a -o test.out
 $ ./test.out
 ```
 
+## Testing with the https://github.com/Tripouille/printfTester
 
+![test outpur](https://imgur.com/a/cIvnmzI)
