@@ -18,9 +18,9 @@ $ make
 
 int main()
 {
-	ft_printf("ft_print   : I am %d years old", 20);
+	ft_printf("ft_print   : I am %d years old", 200);
 	printf("\n");
-	printf("original print: I am %d years old", 20);
+	printf("original print: I am %d years old", 200);
 	printf("\n");
 	return (0);
 }
