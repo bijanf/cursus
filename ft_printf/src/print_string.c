@@ -6,11 +6,11 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 22:58:20 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/12/09 23:35:20 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/12/11 09:51:23 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 #include "libft.h"
 
 int	print_string(char *s)
