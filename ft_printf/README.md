@@ -19,10 +19,8 @@ $ make
 
 int main()
 {
-	ft_printf("ft_print   : I am %d years old", 200);
-	printf("\n");
-	printf("original print: I am %d years old", 200);
-	printf("\n");
+	ft_printf("ft_print   : I am %d years old\n", 200);
+	printf("original print: I am %d years old\n", 200);
 	return (0);
 }
 ```
