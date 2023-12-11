@@ -14,7 +14,7 @@ $ make
 ## Useage example
 
 ```
-#include "ft_printf.h"
+#include "libftprintf.h"
 #include <stdio.h>
 
 int main()
