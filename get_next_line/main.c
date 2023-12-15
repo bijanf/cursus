@@ -6,7 +6,7 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 08:35:53 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/12/15 10:31:05 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/12/15 13:52:12 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,9 @@ int main()
 	}
 
 	line = get_next_line(file_descriptor);
-	while (line != NULL)
-	{
-		write(1, line, strlen(line));
+	write(1, line, strlen(line));
+	if (line)
 		free(line);
-		line = get_next_line(file_descriptor);
-	}
 	close(file_descriptor);
 	return (0);
 }

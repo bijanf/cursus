@@ -6,7 +6,7 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 08:53:22 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/12/15 10:40:56 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/12/15 13:16:39 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <string.h>
 # include <stdlib.h>
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 40
 # endif
 
 char	*get_next_line(int fd);
