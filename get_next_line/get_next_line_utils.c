@@ -6,36 +6,105 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 08:56:39 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/12/15 11:22:11 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/12/17 11:54:23 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
+#include "get_next_line.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_strdup(char *s1)
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
+	char			*dest;
+	unsigned int	i;
 
-	str1 = (unsigned char *)dest;
-	str2 = (unsigned char *)src;
-	if (!n || dest == src)
-		return (dest);
-	while (n--)
-		*str1++ = *str2++;
+	dest = (char *) malloc(ft_strlen(s1) + 1);
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		dest[i] = s1[i];
+		i++;
+	}
+	dest[i] = 0;
 	return (dest);
 }
 
-void		*ft_realloc(void *ptr, size_t size)
+size_t	ft_strlen(char *s)
 {
-	void	*new_ptr;
+	int	i;
 
-	if (ptr == NULL)
-		return (malloc(size));
-	if (!size)
-		return (ptr);
-	new_ptr = malloc(size);
-	ft_memcpy(new_ptr, ptr, size);
-	return (new_ptr);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+char	*ft_substr(char *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	char	*str;
+
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return (malloc(1));
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	str = malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	str[i] = 0;
+	return (str);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	char	*str;
+	size_t	len;
+	char	*save;
+
+	len = 0;
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1 && s2)
+		len = ft_strlen(s2) + 1;
+	else if (s1 && s2)
+		len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	str = malloc(sizeof(*str) * (len));
+	if (!str)
+		return (NULL);
+	save = str;
+	if (s1)
+		while (*s1)
+			*str++ = *s1++;
+	if (s2)
+		while (*s2)
+			*str++ = *s2++;
+	*str = 0;
+	return (save);
+}
+
+char	*ft_strchr(char *s, int c)
+{
+	unsigned int	i;
+	char			cc;
+
+	cc = (char) c;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == cc)
+			return ((char *) &s[i]);
+		i++;
+	}
+	if (s[i] == cc)
+		return ((char *) &s[i]);
+	return (NULL);
 }
