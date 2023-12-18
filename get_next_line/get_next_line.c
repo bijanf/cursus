@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-static char	*_fill_line_buffer(int fd, char *rest, char *buffer);
+static char	*read_line(int fd, char *rest, char *buffer);
 static char	*get_remaining(char *line);
 
 char	*get_next_line(int fd)
@@ -34,7 +34,7 @@ char	*get_next_line(int fd)
 		buffer = NULL;
 		return (NULL);
 	}
-	line = _fill_line_buffer(fd, rest, buffer);
+	line = read_line(fd, rest, buffer);
 	free(buffer);
 	buffer = NULL;
 	if (!line)
@@ -63,7 +63,7 @@ static char	*get_remaining(char *line_buffer)
 	return (rest);
 }
 
-static char	*_fill_line_buffer(int fd, char *rest, char *buffer)
+static char	*read_line(int fd, char *rest, char *buffer)
 {
 	ssize_t	b_read;
 	char	*tmp;
