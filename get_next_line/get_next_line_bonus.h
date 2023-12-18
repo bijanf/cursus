@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 09:23:55 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/12/18 09:25:01 by bfallah-         ###   ########.fr       */
+/*   Created: 2023/12/15 08:53:22 by bfallah-          #+#    #+#             */
+/*   Updated: 2023/12/18 10:39:37 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
-# define MAX_FD 1048576
+# define MAX_FD 8192
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
