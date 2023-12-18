@@ -7,6 +7,6 @@ A function which reads lines of the external file or files in the bonus version.
 </p>
 
 ## How to check it
-'''bash
+```bash
 cc *.c -I. -o test  && ./test
-'''
+```
