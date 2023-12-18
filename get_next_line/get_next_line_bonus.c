@@ -6,14 +6,14 @@
 /*   By: bfallah- <bfallah-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:25:10 by bfallah-          #+#    #+#             */
-/*   Updated: 2023/12/18 09:56:55 by bfallah-         ###   ########.fr       */
+/*   Updated: 2023/12/18 11:01:43 by bfallah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-static char	*read_line(int fd, char *rest, char *buffer);
-static char	*get_remaining(char *line);
+char	*read_line(int fd, char *rest, char *buffer);
+char	*get_remaining(char *line);
 
 char	*get_next_line(int fd)
 {
@@ -43,7 +43,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-static char	*get_remaining(char *line_buffer)
+char	*get_remaining(char *line_buffer)
 {
 	char	*rest;
 	ssize_t	i;
@@ -63,7 +63,7 @@ static char	*get_remaining(char *line_buffer)
 	return (rest);
 }
 
-static char	*read_line(int fd, char *rest, char *buffer)
+char	*read_line(int fd, char *rest, char *buffer)
 {
 	ssize_t	b_read;
 	char	*tmp;
